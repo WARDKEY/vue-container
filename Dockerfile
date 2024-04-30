@@ -27,7 +27,7 @@
 # AS 별칭
 
 # build 과정
-FROM node:latest AS build
+FROM node:20.12.1 AS build
 
 
 WORKDIR /frontapp
@@ -40,7 +40,7 @@ RUN npm run build
 
 
 # production 과정
-FROM node:latest-alpine AS production
+FROM node:20.12.1-alpine AS production
 WORKDIR /frontapp
 COPY --from=build /frontapp .
 CMD [ "npm", "run", "serve" ]
