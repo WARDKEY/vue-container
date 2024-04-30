@@ -42,5 +42,5 @@ RUN npm run build
 # production 과정
 FROM node:latest-alpine AS production
 WORKDIR /frontapp
-COPY --from=build /frontapp
+COPY --from=build /frontapp .
 CMD [ "npm", "run", "serve" ]
